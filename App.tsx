@@ -10,29 +10,22 @@
 
 import React from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native';
+import {ColorBox} from './components/ColorBox';
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View>
           <Text style={styles.textStyle}>
             Here are some boxes of different colors
           </Text>
-          <View style={[styles.secondColor, styles.box]}>
-            <Text style={styles.boxText}>Second color</Text>
-          </View>
-          <View style={[styles.thirdColor, styles.box]}>
-            <Text style={styles.boxText}>Third color</Text>
-          </View>
-          <View style={[styles.firstColor, styles.box]}>
-            <Text style={styles.boxText}>First color</Text>
-          </View>
-          <View style={[styles.fourthColor, styles.box]}>
-            <Text style={styles.boxText}>Fourth color</Text>
-          </View>
+          <ColorBox hexCode="#268bd2" color="Blue" />
+          <ColorBox hexCode="#d33582" color="Magenta" />
+          <ColorBox hexCode="#cb4b16" color="Orange" />
+          <ColorBox hexCode="#2aa198" color="Cyan" />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -51,25 +44,6 @@ const styles = StyleSheet.create({
   },
   firstColor: {
     backgroundColor: 'red',
-  },
-  secondColor: {
-    backgroundColor: 'green',
-  },
-  thirdColor: {
-    backgroundColor: 'blue',
-  },
-  fourthColor: {
-    backgroundColor: 'purple',
-  },
-  box: {
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  boxText: {
-    color: '#fff',
-    fontWeight: 'bold',
   },
 });
 
