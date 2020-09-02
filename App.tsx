@@ -9,109 +9,67 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native';
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change
-                this screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+    <SafeAreaView>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <View>
+          <Text style={styles.textStyle}>
+            Here are some boxes of different colors
+          </Text>
+          <View style={[styles.secondColor, styles.box]}>
+            <Text style={styles.boxText}>Second color</Text>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+          <View style={[styles.thirdColor, styles.box]}>
+            <Text style={styles.boxText}>Third color</Text>
+          </View>
+          <View style={[styles.firstColor, styles.box]}>
+            <Text style={styles.boxText}>First color</Text>
+          </View>
+          <View style={[styles.fourthColor, styles.box]}>
+            <Text style={styles.boxText}>Fourth color</Text>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    paddingHorizontal: 10,
+    paddingTop: 40,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
+  textStyle: {
     fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
-  highlight: {
-    fontWeight: '700',
+  firstColor: {
+    backgroundColor: 'red',
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  secondColor: {
+    backgroundColor: 'green',
+  },
+  thirdColor: {
+    backgroundColor: 'blue',
+  },
+  fourthColor: {
+    backgroundColor: 'purple',
+  },
+  box: {
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  boxText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
 
